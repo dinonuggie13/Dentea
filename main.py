@@ -7,10 +7,16 @@ import time
 
 bot = commands.Bot(command_prefix= "!", intents= discord.Intents.all())
 
+
+
+## EVENTS
 @bot.event
 async def on_ready():
     print(f'Logged on.')
 
+
+
+## COMMANDS
 @bot.command()
 async def timedmessage(ctx, *msg):
 
@@ -25,6 +31,10 @@ async def timedmessage(ctx, *msg):
     await ctx.send(message)
 
 
+# Creates a new timer
+# arguments:
+#   timer_name: name of the new timer to make
+#   time_in_secs: amount of seconds until timer completion
 @bot.command()
 async def meow(ctx, *args):
     meow = (" ".join(args))
@@ -43,6 +53,10 @@ async def meow(ctx, *args):
         await ctx.send(f"{timername}'s time is up!, {timeinseconds} seconds passed")
         lib.deltimer(timername)
 
+
+# Checks remaining time for specified timer
+# arguments:
+#   timer_name: name of timer to check
 @bot.command()
 async def woof(ctx, timername):
     if lib.checkfortimer(timername):
@@ -50,4 +64,7 @@ async def woof(ctx, timername):
         await ctx.send(f"{timeleft} remaining for {timername}")
     else: await ctx.send("invalid input")
 
+
+
+## RUN BOT
 bot.run(token)
