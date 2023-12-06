@@ -1,0 +1,13 @@
+# Python Virtual Environment Files
+/bin
+/include
+/lib
+/lib64
+/pyvenv.cfg
+
+# Python Cache Folder (doesn't need to be pushed)
+__pycache__
+
+# Sensitive Data
+tokenbox.py
+
