@@ -1,14 +1,31 @@
 import discord
-from tokenbox import token
 from discord.ext import commands
 import asyncio
 import lib
 import time
+import os
 
 
 
+## TOKENBOX
+# Check for tokenbox file, warn and exit if not exist
+if not os.path.isfile("tokenbox.py"):
+    print("WARNING: tokenbox.py not found...")
+    print("Please create a tokenbox.py file using",
+        "the provided template, 'tokenbox.template.py'"
+    )
+    exit()
+
+try:
+    from tokenbox import token
+except ImportError:
+    print("ERROR: invalid tokenbox.py structure") 
+
+
+
+
+## Create Bot Client
 bot = commands.Bot(command_prefix= "!", intents= discord.Intents.all())
-
 
 
 ## EVENTS
