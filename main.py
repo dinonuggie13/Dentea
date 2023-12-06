@@ -22,7 +22,7 @@ async def on_ready():
 @bot.command()
 async def timedmessage(ctx, *msg):
 
-    meow = (" ".join(msg))
+    meow = (" ".join(msg)) 
     listtotake = lib.sstlist(meow, "|")
     print(listtotake)
     time = int(listtotake[1])
